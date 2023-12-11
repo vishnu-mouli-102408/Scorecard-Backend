@@ -99,6 +99,7 @@ export const get = async (req: Request, res: Response) => {
 
 export const getCurrentMarketPrice = async (req: Request, res: Response) => {
   try {
+    console.log("SYMBOL",req.params.symbol)	  
     const response = await fetchCurrentMarketPrice(req.params.symbol);
     return res.status(200).json({
       data: response,
