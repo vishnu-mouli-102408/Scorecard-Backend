@@ -3,7 +3,9 @@ const nseIndia = new NseIndia();
 
 export async function fetchCurrentMarketPrice(symbol: string): Promise<number> {
   try {
+    console.log("Hitting the fetchCurrentMarketPrice Function")
     const details = await nseIndia.getEquityDetails(symbol);
+    console.log("details",details)
 
     if (details.priceInfo && typeof details.priceInfo.lastPrice === "number") {
       return details.priceInfo.lastPrice;
