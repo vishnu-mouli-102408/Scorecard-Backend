@@ -9,7 +9,6 @@ export const setupJobs = () => {
   cron.schedule("* * * * *", async () => {
     const stocksData = await stockService.getAll();
     stocksData.forEach(async (singleData) => {
-      // await calculations.calculateBuyRate(singleData.id);
       await calculations.calculateSellRate(singleData.id);
     });
   });
